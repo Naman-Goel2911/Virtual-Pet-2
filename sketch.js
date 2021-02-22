@@ -82,12 +82,7 @@ function draw()
   drawSprites();
 }
 
-function readStock(data)
-{
-    foodS = data.val();
-}
-
-function writeStocks(foodLeft)
+function writeStocks()
 {
   if(foodS<=0)
   {
@@ -99,7 +94,8 @@ function writeStocks(foodLeft)
   }
 
   database.ref('/').update({
-    food: foodS
+    food: foodS,
+    FeedTime: hour()
   })
 }
 
